@@ -35,7 +35,7 @@ grades_up = grade0[1::]
 
 due_date = 'the 31st of May 2021'
 
-print(grades)
+
 
 # the grades form csv file are introduced as strings to add +1 it is necessary to change them into int format
 for i in range(len(grades_up)):
@@ -46,7 +46,6 @@ for i in range(len(grades_up)):
         grades_up[i] = 'grade up'
         # not every field in the grade column has the grade introduced
 
-print(grades_up)
 
 
 
@@ -60,8 +59,10 @@ if __name__ == '__main__':
             break
         except FileNotFoundError:
             print('File not found. Try again ;) ')
-            continue
+        break
 
-
-for name, task, grade, grade_up in zip(names, tasks, grades, grades_up):
-    print(message.format(name, task, grade, grade_up, due_date))
+try:
+    for name, task, grade, grade_up in zip(names, tasks, grades, grades_up):
+        print(message.format(name, task, grade, grade_up, due_date))
+except NameError:
+    print('Message not found. Try again ;) ')
